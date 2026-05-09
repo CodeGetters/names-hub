@@ -39,23 +39,25 @@ export default async function GirlNamesPage({
   return (
     <div className="flex flex-col">
       {/* Hero */}
-      <section className="bg-gradient-to-b from-girl/10 to-background py-16">
-        <div className="mx-auto max-w-6xl px-4">
-          <h1 className="text-4xl font-bold">{t("title")}</h1>
-          <p className="mt-2 text-muted">{t("description")}</p>
+      <section className="relative overflow-hidden bg-gradient-to-br from-girl/5 via-background to-background py-20">
+        <div className="absolute -top-20 -right-20 h-72 w-72 rounded-full bg-girl/10 blur-3xl" />
+        <div className="absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-girl/5 blur-3xl" />
+        <div className="mx-auto max-w-6xl px-4 relative">
+          <h1 className="text-5xl font-bold font-display">{t("title")}</h1>
+          <p className="mt-3 text-lg text-muted">{t("description")}</p>
         </div>
       </section>
 
       {/* Quick Jump by Letter */}
-      <section className="border-b border-border py-4">
+      <section className="border-b border-border py-4 bg-card/50">
         <div className="mx-auto max-w-6xl px-4">
           <div className="flex flex-wrap gap-2">
-            <span className="text-sm text-muted">{t("jumpTo")}</span>
+            <span className="text-sm text-muted font-semibold">{t("jumpTo")}</span>
             {letterGroups.map((letter) => (
               <a
                 key={letter}
                 href={`#letter-${letter}`}
-                className="rounded-lg px-3 py-1 text-sm font-medium text-girl hover:bg-girl/10"
+                className="btn-clay px-3 py-1 text-xs font-bold"
               >
                 {letter}
               </a>
@@ -67,21 +69,21 @@ export default async function GirlNamesPage({
       {/* Names Grid */}
       <section className="flex-1 py-12">
         <div className="mx-auto max-w-6xl px-4">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {girlNames.map((name, idx) => (
               <Link
                 key={idx}
                 href={`/name/${name.name.toLowerCase()}`}
-                className="group rounded-xl border border-border bg-card p-5 transition-all hover:shadow-lg hover:ring-2 hover:ring-girl/20"
+                className="card-clay-sm p-5 group transition-all hover:scale-102 hover:shadow-xl"
               >
                 <div className="flex items-start justify-between">
                   <div>
-                    <h3 className="text-2xl font-bold group-hover:text-girl">
+                    <h3 className="text-2xl font-bold font-display group-hover:text-girl transition-colors">
                       {name.name}
                     </h3>
                     <p className="text-sm text-muted">{name.pinyin}</p>
                   </div>
-                  <span className="rounded-full bg-girl/10 px-2 py-1 text-xs font-medium text-girl">
+                  <span className="rounded-full bg-girl/10 px-3 py-1 text-xs font-bold text-girl">
                     {tCommon(`style.${name.style}`)}
                   </span>
                 </div>
@@ -93,16 +95,21 @@ export default async function GirlNamesPage({
       </section>
 
       {/* CTA */}
-      <section className="bg-girl/5 py-12">
-        <div className="mx-auto max-w-6xl px-4 text-center">
-          <h2 className="text-2xl font-bold">{t("ctaTitle")}</h2>
-          <p className="mt-2 text-muted">{t("ctaDescription")}</p>
-          <Link
-            href="/generator"
-            className="mt-6 inline-flex items-center gap-2 rounded-full bg-girl px-8 py-3 font-semibold text-white shadow-lg transition-all hover:bg-girl/90 hover:shadow-xl"
-          >
-            {t("ctaButton")}
-          </Link>
+      <section className="py-16 bg-gradient-to-t from-girl/5 to-background">
+        <div className="mx-auto max-w-4xl px-4 text-center">
+          <div className="card-clay p-10">
+            <h2 className="text-3xl font-bold font-display">{t("ctaTitle")}</h2>
+            <p className="mt-3 text-muted max-w-md mx-auto">{t("ctaDescription")}</p>
+            <Link
+              href="/generator"
+              className="btn-clay-girl mt-8 inline-flex items-center gap-2 rounded-2xl px-8 py-4 font-bold text-base shadow-lg"
+            >
+              {t("ctaButton")}
+              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </Link>
+          </div>
         </div>
       </section>
     </div>

@@ -36,31 +36,35 @@ export default function InlineGenerator() {
       }
       setResults(selectedNames.map((n) => ({ ...n, origin: "Chinese" })));
       setGenerating(false);
-    }, 500);
+    }, 600);
   };
 
-  const genderOptions: { value: Gender; label: string; color: string }[] = [
-    { value: "all", label: tCommon("gender.any"), color: "secondary" },
-    { value: "boy", label: tCommon("gender.boy"), color: "boy" },
-    { value: "girl", label: tCommon("gender.girl"), color: "girl" },
+  const genderOptions: { value: Gender; label: string; color: string; gradient: string }[] = [
+    { value: "all", label: tCommon("gender.any"), color: "text-foreground", gradient: "btn-clay" },
+    { value: "boy", label: tCommon("gender.boy"), color: "text-boy", gradient: "btn-clay-boy" },
+    { value: "girl", label: tCommon("gender.girl"), color: "text-girl", gradient: "btn-clay-girl" },
   ];
 
   return (
-    <>
-      <div className="mx-auto mt-12 max-w-2xl rounded-2xl bg-card p-8 shadow-xl ring-1 ring-border">
-        <div className="space-y-6">
+    <div className="animate-clay-in">
+      {/* Claymorphism form container */}
+      <div className="card-clay p-8 mx-auto max-w-2xl">
+        <div className="space-y-8">
+          {/* Gender Selection */}
           <div>
-            <label className="mb-3 block text-sm font-medium">{t("form.genderLabel")}</label>
-            <div className="flex gap-3">
+            <label className="mb-4 block text-sm font-semibold text-foreground">
+              {t("form.genderLabel")}
+            </label>
+            <div className="grid grid-cols-3 gap-3">
               {genderOptions.map((option) => (
                 <button
                   key={option.value}
                   onClick={() => setGender(option.value)}
-                  className={`flex-1 rounded-lg px-4 py-3 text-sm font-medium transition-all ${
-                    gender === option.value
-                      ? `bg-${option.color} text-white shadow-md`
-                      : "bg-muted-bg text-foreground hover:bg-muted/20"
-                  }`}
+                  className={`
+                    ${gender === option.value ? option.gradient : "btn-clay"}
+                    ${gender === option.value ? "" : option.color}
+                    px-4 py-3 text-sm font-semibold transition-all
+                  `}
                 >
                   {option.label}
                 </button>
@@ -68,40 +72,51 @@ export default function InlineGenerator() {
             </div>
           </div>
 
+          {/* Style Select */}
           <div>
-            <label className="mb-3 block text-sm font-medium">{t("form.styleLabel")}</label>
-            <select
-              value={style}
-              onChange={(e) => setStyle(e.target.value)}
-              className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-            >
-              <option value="classic">{t("form.styleOptions.classic")}</option>
-              <option value="modern">{t("form.styleOptions.modern")}</option>
-              <option value="nature">{t("form.styleOptions.nature")}</option>
-              <option value="scholarly">{t("form.styleOptions.scholarly")}</option>
-              <option value="elegant">{t("form.styleOptions.elegant")}</option>
-            </select>
+            <label className="mb-4 block text-sm font-semibold text-foreground">
+              {t("form.styleLabel")}
+            </label>
+            <div className="card-clay-inset p-1">
+              <select
+                value={style}
+                onChange={(e) => setStyle(e.target.value)}
+                className="w-full rounded-xl bg-transparent px-4 py-3 text-sm font-medium focus:outline-none cursor-pointer appearance-none"
+              >
+                <option value="classic">{t("form.styleOptions.classic")}</option>
+                <option value="modern">{t("form.styleOptions.modern")}</option>
+                <option value="nature">{t("form.styleOptions.nature")}</option>
+                <option value="scholarly">{t("form.styleOptions.scholarly")}</option>
+                <option value="elegant">{t("form.styleOptions.elegant")}</option>
+              </select>
+            </div>
           </div>
 
+          {/* Starting Letter */}
           <div>
-            <label className="mb-3 block text-sm font-medium">{t("form.startingLetterLabel")}</label>
-            <input
-              type="text"
-              maxLength={1}
-              value={startingLetter}
-              onChange={(e) => setStartingLetter(e.target.value.toUpperCase())}
-              placeholder={t("form.startingLetterPlaceholder")}
-              className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-            />
+            <label className="mb-4 block text-sm font-semibold text-foreground">
+              {t("form.startingLetterLabel")}
+            </label>
+            <div className="card-clay-inset p-1">
+              <input
+                type="text"
+                maxLength={1}
+                value={startingLetter}
+                onChange={(e) => setStartingLetter(e.target.value.toUpperCase())}
+                placeholder={t("form.startingLetterPlaceholder")}
+                className="w-full rounded-xl bg-transparent px-4 py-3 text-sm focus:outline-none uppercase tracking-wider"
+              />
+            </div>
           </div>
 
+          {/* Generate Button */}
           <button
             onClick={handleGenerate}
             disabled={generating}
-            className="w-full rounded-lg bg-primary px-6 py-4 text-base font-semibold text-white shadow-lg transition-all hover:bg-primary-hover disabled:opacity-50"
+            className="btn-clay-primary w-full rounded-xl px-6 py-4 text-base font-bold shadow-lg"
           >
             {generating ? (
-              <span className="flex items-center justify-center gap-2">
+              <span className="flex items-center justify-center gap-3">
                 <svg className="h-5 w-5 animate-spin" viewBox="0 0 24 24">
                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
@@ -109,50 +124,56 @@ export default function InlineGenerator() {
                 {t("form.generating")}
               </span>
             ) : (
-              t("form.generateButton")
+              <span className="flex items-center justify-center gap-2">
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                {t("form.generateButton")}
+              </span>
             )}
           </button>
         </div>
       </div>
 
+      {/* Results */}
       {results.length > 0 && (
-        <div className="mx-auto mt-8 max-w-2xl animate-in fade-in slide-in-from-bottom-4">
-          <h3 className="mb-4 text-center text-lg font-semibold">{t("results.title")}</h3>
+        <div className="mt-8 mx-auto max-w-2xl animate-clay-in">
+          <h3 className="mb-6 text-center text-xl font-bold font-display">{t("results.title")}</h3>
           <div className="grid gap-4 sm:grid-cols-2">
             {results.map((name, idx) => (
               <div
                 key={idx}
-                className="rounded-xl border border-border bg-card p-4 transition-all hover:shadow-md"
+                className="card-clay-sm p-5 transition-all hover:scale-102 hover:shadow-xl"
               >
                 <div className="flex items-start justify-between">
                   <div>
-                    <p className="text-2xl font-bold">{name.name}</p>
-                    {name.pinyin && <p className="text-sm text-muted">{name.pinyin}</p>}
+                    <p className="text-2xl font-bold font-display">{name.name}</p>
+                    {name.pinyin && <p className="text-sm text-muted font-medium">{name.pinyin}</p>}
                   </div>
-                  <span className="rounded-full bg-secondary/10 px-2 py-1 text-xs font-medium text-secondary">
+                  <span className="rounded-full bg-accent/10 px-3 py-1 text-xs font-bold text-primary">
                     {name.origin}
                   </span>
                 </div>
-                <p className="mt-2 text-sm text-muted">{name.meaning}</p>
+                <p className="mt-3 text-sm text-muted">{name.meaning}</p>
               </div>
             ))}
           </div>
-          <div className="mt-4 flex justify-center gap-3">
+          <div className="mt-6 flex justify-center gap-3">
             <button
               onClick={handleGenerate}
-              className="rounded-lg border border-border px-4 py-2 text-sm font-medium hover:bg-muted-bg"
+              className="btn-clay-primary px-6 py-3 text-sm font-semibold"
             >
               {t("results.generateMore")}
             </button>
             <button
               onClick={() => setResults([])}
-              className="rounded-lg bg-muted-bg px-4 py-2 text-sm font-medium hover:bg-muted/20"
+              className="btn-clay px-6 py-3 text-sm font-semibold"
             >
               {t("results.clear")}
             </button>
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }

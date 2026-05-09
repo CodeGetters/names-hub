@@ -1,31 +1,47 @@
 @import "tailwindcss";
 
 :root {
-  /* Primary Colors - Warm, welcoming palette */
-  --background: #faf9f7;
-  --foreground: #1a1a1a;
-  --primary: #e85d4c;
-  --primary-hover: #d14d3d;
-  --secondary: #6b8f71;
-  --accent: #f4a261;
+  /* Claymorphism Design System - Warm, playful, soft 3D */
+  --background: #fef6f9;
+  --foreground: #1a1a2e;
+  --primary: #ec4899;
+  --primary-hover: #db2777;
+  --secondary: #38bdf8;
+  --accent: #f472b6;
 
   /* Gender-specific colors */
-  --boy: #5b9bd5;
-  --boy-bg: #e8f4fd;
-  --girl: #e86d9a;
-  --girl-bg: #fde8f1;
+  --boy: #3b82f6;
+  --boy-bg: #eff6ff;
+  --girl: #ec4899;
+  --girl-bg: #fdf2f8;
 
-  /* Neutral palette */
-  --muted: #78716c;
-  --muted-bg: #f5f5f4;
-  --border: #e5e5e5;
+  /* Claymorphism surfaces */
   --card: #ffffff;
+  --card-elevated: #ffffff;
+  --muted: #94a3b8;
+  --muted-bg: #f1f5f9;
+  --border: #f8e8f0;
+
+  /* Claymorphism shadows - soft, warm, layered */
+  --shadow-sm: 0 2px 8px rgba(236, 72, 153, 0.08);
+  --shadow-md: 4px 4px 12px rgba(236, 72, 153, 0.12), -4px -4px 12px rgba(255, 255, 255, 0.8);
+  --shadow-lg: 8px 8px 24px rgba(236, 72, 153, 0.15), -8px -8px 24px rgba(255, 255, 255, 0.9);
+  --shadow-xl: 12px 12px 32px rgba(236, 72, 153, 0.18), -12px -12px 32px rgba(255, 255, 255, 0.95);
+  --shadow-inner: inset 2px 2px 4px rgba(0, 0, 0, 0.04), inset -2px -2px 4px rgba(255, 255, 255, 0.6);
+
+  /* Spacing */
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
   --color-secondary: var(--secondary);
   --color-accent: var(--accent);
   --color-boy: var(--boy);
@@ -36,39 +52,228 @@
   --color-muted-bg: var(--muted-bg);
   --color-border: var(--border);
   --color-card: var(--card);
-  --font-sans: system-ui, -apple-system, sans-serif;
+  --color-card-elevated: var(--card-elevated);
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+  --shadow-inner: var(--shadow-inner);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --font-sans: "Nunito", system-ui, -apple-system, sans-serif;
+  --font-display: "Fredoka", system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom scrollbar */
+/* Claymorphism card base */
+.card-clay {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  border: 2px solid var(--border);
+}
+
+.card-clay-sm {
+  background: var(--card);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  border: 2px solid var(--border);
+}
+
+.card-clay-inset {
+  background: linear-gradient(145deg, #f8fafc, #f1f5f9);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-inner);
+}
+
+/* Button clay styles */
+.btn-clay {
+  background: var(--card);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  border: 2px solid var(--border);
+  transition: all 200ms ease-out;
+  cursor: pointer;
+}
+
+.btn-clay:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.btn-clay:active {
+  box-shadow: var(--shadow-inner);
+  transform: translateY(0);
+}
+
+.btn-clay-primary {
+  background: linear-gradient(145deg, var(--primary), var(--primary-hover));
+  color: white;
+  border: none;
+  box-shadow: var(--shadow-md), 0 4px 16px rgba(236, 72, 153, 0.3);
+}
+
+.btn-clay-primary:hover {
+  box-shadow: var(--shadow-lg), 0 6px 20px rgba(236, 72, 153, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-clay-primary:active {
+  box-shadow: var(--shadow-inner), 0 2px 8px rgba(236, 72, 153, 0.3);
+  transform: translateY(0);
+}
+
+/* Gender-specific clay buttons */
+.btn-clay-boy {
+  background: linear-gradient(145deg, var(--boy), #2563eb);
+  color: white;
+  border: none;
+  box-shadow: var(--shadow-md), 0 4px 16px rgba(59, 130, 246, 0.3);
+}
+
+.btn-clay-boy:hover {
+  box-shadow: var(--shadow-lg), 0 6px 20px rgba(59, 130, 246, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-clay-girl {
+  background: linear-gradient(145deg, var(--girl), #db2777);
+  color: white;
+  border: none;
+  box-shadow: var(--shadow-md), 0 4px 16px rgba(236, 72, 153, 0.3);
+}
+
+.btn-clay-girl:hover {
+  box-shadow: var(--shadow-lg), 0 6px 20px rgba(236, 72, 153, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Custom scrollbar - claymorphism style */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
   background: var(--muted-bg);
+  border-radius: var(--radius-full);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--muted);
-  border-radius: 4px;
+  background: linear-gradient(145deg, var(--muted), #64748b);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--muted-bg);
 }
 
-/* Selection color */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(145deg, var(--primary), var(--primary-hover));
+}
+
+/* Selection */
 ::selection {
   background: var(--primary);
   color: white;
 }
 
-/* Smooth transitions */
-* {
-  transition-property: color, background-color, border-color;
-  transition-timing-function: ease-out;
-  transition-duration: 150ms;
+/* Focus visible */
+:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Animations */
+@keyframes clay-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes clay-pulse {
+  0%, 100% {
+    box-shadow: var(--shadow-md);
+  }
+  50% {
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-clay-in {
+  animation: clay-in 400ms ease-out;
+}
+
+.animate-clay-pulse {
+  animation: clay-pulse 2s ease-in-out infinite;
+}
+
+/* Skeleton shimmer for claymorphic loading */
+.skeleton-clay {
+  background: linear-gradient(
+    90deg,
+    var(--muted-bg) 25%,
+    #e2e8f0 50%,
+    var(--muted-bg) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-md);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Utility for clay glow effect */
+.glow-primary {
+  box-shadow: 0 0 20px rgba(236, 72, 153, 0.3), 0 0 40px rgba(236, 72, 153, 0.1);
+}
+
+.glow-boy {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3), 0 0 40px rgba(59, 130, 246, 0.1);
+}
+
+.glow-girl {
+  box-shadow: 0 0 20px rgba(236, 72, 153, 0.3), 0 0 40px rgba(236, 72, 153, 0.1);
 }

@@ -12,15 +12,19 @@ export default async function GeneratorPage({
 
   return (
     <div className="flex flex-col">
-      <section className="bg-gradient-to-b from-primary/10 to-background py-16">
-        <div className="mx-auto max-w-4xl px-4 text-center">
-          <h1 className="text-4xl font-bold">{t("hero.title")}</h1>
-          <p className="mt-4 text-muted max-w-2xl mx-auto">{t("hero.description")}</p>
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/10 py-24">
+        <div className="absolute -top-20 -right-20 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-accent/10 blur-3xl" />
+        <div className="mx-auto max-w-4xl px-4 text-center relative animate-clay-in">
+          <h1 className="text-5xl font-bold font-display">{t("hero.title")}</h1>
+          <p className="mt-6 text-lg text-muted max-w-2xl mx-auto leading-relaxed">{t("hero.description")}</p>
         </div>
       </section>
 
+      {/* Form */}
       <section className="flex-1 py-12">
-        <div className="mx-auto max-w-4xl px-4">
+        <div className="mx-auto max-w-5xl px-4">
           <GeneratorForm />
         </div>
       </section>

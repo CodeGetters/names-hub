@@ -19,21 +19,24 @@ export default function LocaleError({
 
   return (
     <div className="flex flex-1 flex-col items-center justify-center px-4 py-20 text-center">
-      <h1 className="text-3xl font-bold">{t("title")}</h1>
-      <p className="mt-4 max-w-md text-muted">{t("description")}</p>
-      <div className="mt-8 flex gap-3">
-        <button
-          onClick={reset}
-          className="rounded-lg bg-primary px-6 py-3 font-medium text-white hover:bg-primary-hover"
-        >
-          {t("retry")}
-        </button>
-        <Link
-          href="/"
-          className="rounded-lg border border-border px-6 py-3 font-medium hover:bg-muted-bg"
-        >
-          {t("backHome")}
-        </Link>
+      <div className="card-clay p-10 max-w-md">
+        <div className="text-6xl mb-4">😕</div>
+        <h1 className="text-3xl font-bold font-display">{t("title")}</h1>
+        <p className="mt-4 text-muted leading-relaxed">{t("description")}</p>
+        <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+          <button
+            onClick={reset}
+            className="btn-clay-primary px-6 py-3 font-semibold"
+          >
+            {t("retry")}
+          </button>
+          <Link
+            href="/"
+            className="btn-clay px-6 py-3 font-semibold text-center"
+          >
+            {t("backHome")}
+          </Link>
+        </div>
       </div>
     </div>
   );

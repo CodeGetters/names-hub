@@ -33,52 +33,35 @@ pnpm lint     # Run ESLint
 ## Architecture
 
 ```
-src/app/                    # App Router pages
-  page.tsx                  # Home page with inline generator
-  generator/page.tsx        # Dedicated generator page (uses /api/generate)
-  boy/page.tsx              # Boy names listing
-  girl/page.tsx             # Girl names listing
-  name/[slug]/page.tsx      # Individual name detail page
+src/app/                    # App Router pages (all under [locale]/)
+  [locale]/                 # Locale routing: /en, /zh
+    page.tsx                # Home page (RSC + InlineGenerator island)
+    about/page.tsx         # About page (RSC)
+    generator/page.tsx     # Generator page (RSC + GeneratorForm island)
+    boy/page.tsx            # Boy names listing (RSC)
+    girl/page.tsx           # Girl names listing (RSC)
+    name/[slug]/page.tsx    # Name detail page (dynamic, SSG)
 
 src/components/            # React components
-  ui/                       # Base UI components
-  generator/                # Generator-specific components
-  layout/                  # Layout components
+  ui/                       # Base UI components (Skeleton, etc.)
+  generator/                # Generator client islands (InlineGenerator, GeneratorForm)
+  layout/                  # Layout components (LocaleSwitcher)
 
-src/lib/names/              # Name data utilities (only lib subdirectory present)
-
-src/data/                   # Static name data
-
-src/app/globals.css         # Tailwind v4 CSS-first config + CSS variables
+src/data/                   # Static name data (popular-names.ts)
+src/lib/names/              # Name data utilities
 ```
 
-**No API routes yet.** `generator/page.tsx` calls `/api/generate` but that endpoint does not exist.
-
----
-
-## Styling Conventions
-
-Tailwind CSS v4 uses CSS-first configuration. Theme variables are defined in `globals.css`:
-
-```css
-:root {
-  --primary: #e85d4c;        /* Main brand color */
-  --secondary: #6b8f71;     /* Secondary color */
-  --boy: #5b9bd5;           /* Gender color */
-  --girl: #e86d9a;          /* Gender color */
-  --background: #faf9f7;
-  /* ... */
-}
-```
-
-Color classes work as `text-primary`, `bg-boy`, `text-girl`, etc. (NOT `text-[#xxx]`).
+**No API routes yet.** `GeneratorForm` calls `/api/generate` but that endpoint does not exist.
 
 ---
 
 ## Key Implementation Notes
 
-1. All pages use `"use client"` directive (no server components yet)
-2. Static fallback data in `generator/page.tsx` provides names when API fails
-3. Gender filtering: `boy` | `girl` | `all`
-4. Style options: `classic` | `modern` | `nature` | `scholarly` | `elegant`
-5. Pinyin romanization included for all Chinese names
+1. Home and generator pages are RSC; interactive parts are `"use client"` island components
+2. `InlineGenerator` — gender/style/letter form embedded on home page
+3. `GeneratorForm` — full generator form with inline error display (no static fallback)
+4. Gender filtering: `boy` | `girl` | `all`
+5. Style options: `classic` | `modern` | `nature` | `scholarly` | `elegant`
+6. Pinyin romanization included for all Chinese names
+7. Error boundaries (`error.tsx`), loading skeletons (`loading.tsx`), and not-found pages exist for all routes
+8. `notFound()` from `next/navigation` used in name/[slug]/page.tsx
