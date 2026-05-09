@@ -1,0 +1,162 @@
+{
+  "Layout": {
+    "siteName": "Names Hub",
+    "nav": {
+      "boyNames": "Boy Names",
+      "girlNames": "Girl Names",
+      "generator": "Generator",
+      "about": "About"
+    },
+    "footer": {
+      "copyright": "© 2026 Names Hub. All rights reserved."
+    },
+    "metadata": {
+      "title": "Names Hub - AI Baby Name Generator | Chinese & English Names",
+      "description": "Discover the perfect baby name with AI. Generate beautiful Chinese-English bilingual names for your baby. Free, instant, and personalized.",
+      "ogTitle": "Names Hub - AI Baby Name Generator",
+      "ogDescription": "Generate beautiful Chinese-English baby names with AI"
+    }
+  },
+  "LocaleSwitcher": {
+    "label": "Language",
+    "en": "English",
+    "zh": "中文"
+  },
+  "Common": {
+    "gender": {
+      "any": "Any",
+      "boy": "Boy",
+      "girl": "Girl"
+    },
+    "style": {
+      "classic": "Classic",
+      "modern": "Modern",
+      "nature": "Nature",
+      "scholarly": "Scholarly",
+      "elegant": "Elegant"
+    }
+  },
+  "HomePage": {
+    "hero": {
+      "titleBefore": "Find the Perfect",
+      "titleHighlight": "Name",
+      "description": "AI-powered baby name generator with Chinese-English bilingual names. Generate meaningful, culturally rich names for your little one."
+    },
+    "form": {
+      "genderLabel": "Baby Gender",
+      "styleLabel": "Name Style",
+      "styleOptions": {
+        "classic": "Classic & Traditional",
+        "modern": "Modern & Trendy",
+        "nature": "Nature-Inspired",
+        "scholarly": "Scholarly & Literary",
+        "elegant": "Elegant & Refined"
+      },
+      "startingLetterLabel": "Starting Letter (Optional)",
+      "startingLetterPlaceholder": "e.g., A, B, C...",
+      "generateButton": "Generate Names with AI",
+      "generating": "Generating..."
+    },
+    "results": {
+      "title": "Generated Names",
+      "generateMore": "Generate More",
+      "clear": "Clear"
+    },
+    "features": {
+      "title": "Why Choose Names Hub?",
+      "aiPowered": {
+        "title": "AI-Powered",
+        "description": "Smart name generation using advanced AI to match your preferences and cultural heritage."
+      },
+      "bilingual": {
+        "title": "Chinese & English",
+        "description": "Bilingual names that bridge cultures, with pinyin romanization and meaning explanations."
+      },
+      "free": {
+        "title": "Free & Instant",
+        "description": "No registration required. Generate unlimited name suggestions instantly."
+      }
+    },
+    "popular": {
+      "title": "Popular Names",
+      "subtitle": "Browse our collection of trending baby names",
+      "boy": "Boy Names",
+      "girl": "Girl Names",
+      "viewAllBoy": "View all boy names",
+      "viewAllGirl": "View all girl names"
+    },
+    "cta": {
+      "title": "Ready to Find Your Perfect Name?",
+      "description": "Start generating beautiful bilingual names for your baby today.",
+      "button": "Get Started Free"
+    }
+  },
+  "GeneratorPage": {
+    "hero": {
+      "title": "AI Name Generator",
+      "description": "Generate unique Chinese baby names powered by AI. Choose your preferences and let our AI create the perfect name for your baby."
+    },
+    "form": {
+      "title": "Customize Your Search",
+      "genderLabel": "Baby Gender",
+      "styleLabel": "Name Style",
+      "styleDescriptions": {
+        "classic": "Traditional elegant names with deep cultural roots",
+        "modern": "Contemporary names popular in recent years",
+        "nature": "Names inspired by natural elements",
+        "scholarly": "Names with literary and scholarly connotations",
+        "elegant": "Refined and graceful names"
+      },
+      "startingLetterLabel": "Starting Letter (Optional)",
+      "startingLetterPlaceholder": "e.g., A, B, C...",
+      "startingLetterHint": "Filter names by their Pinyin starting letter",
+      "generateButton": "Generate Names with AI",
+      "generating": "Generating..."
+    },
+    "results": {
+      "title": "Generated Names",
+      "empty": "Configure options and click generate to create unique names",
+      "generateMore": "Generate More",
+      "stats": "{count, plural, one {# generation} other {# generations}} this session"
+    }
+  },
+  "BoyPage": {
+    "title": "Chinese Boy Names",
+    "description": "Discover meaningful Chinese names for your baby boy with pinyin and meanings.",
+    "jumpTo": "Jump to:",
+    "ctaTitle": "Generate More Names",
+    "ctaDescription": "Use our AI-powered generator to create unique names based on your preferences.",
+    "ctaButton": "Try AI Generator"
+  },
+  "GirlPage": {
+    "title": "Chinese Girl Names",
+    "description": "Discover beautiful Chinese names for your baby girl with pinyin and meanings.",
+    "jumpTo": "Jump to:",
+    "ctaTitle": "Generate More Names",
+    "ctaDescription": "Use our AI-powered generator to create unique names based on your preferences.",
+    "ctaButton": "Try AI Generator"
+  },
+  "NamePage": {
+    "notFound": {
+      "title": "Name Not Found",
+      "description": "The name \"{slug}\" is not in our database yet.",
+      "backHome": "Back to Home"
+    },
+    "backToBoy": "← Back to Boy Names",
+    "backToGirl": "← Back to Girl Names",
+    "meaning": "Meaning",
+    "story": "Name Story",
+    "similar": "Similar Names",
+    "quickFacts": {
+      "title": "Quick Facts",
+      "characters": "Characters",
+      "strokes": "Total Strokes",
+      "gender": "Gender",
+      "origin": "Origin"
+    },
+    "ctaTitle": "Like this name?",
+    "ctaDescriptionBoy": "Generate more boy names like {name}",
+    "ctaDescriptionGirl": "Generate more girl names like {name}",
+    "ctaButton": "Try AI Generator"
+  }
+}

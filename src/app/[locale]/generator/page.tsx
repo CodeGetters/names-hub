@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 type Gender = "all" | "boy" | "girl";
 type Style = "classic" | "modern" | "nature" | "scholarly" | "elegant";
@@ -13,15 +14,11 @@ interface NameResult {
   origin: string;
 }
 
-const styleDescriptions: Record<Style, string> = {
-  classic: "Traditional elegant names with deep cultural roots",
-  modern: "Contemporary names popular in recent years",
-  nature: "Names inspired by natural elements",
-  scholarly: "Names with literary and scholarly connotations",
-  elegant: "Refined and graceful names",
-};
+const STYLES: Style[] = ["classic", "modern", "nature", "scholarly", "elegant"];
 
 export default function GeneratorPage() {
+  const t = useTranslations("GeneratorPage");
+  const tCommon = useTranslations("Common");
   const [gender, setGender] = useState<Gender>("all");
   const [style, setStyle] = useState<Style>("classic");
   const [startingLetter, setStartingLetter] = useState("");
@@ -53,7 +50,6 @@ export default function GeneratorPage() {
       }
     } catch (error) {
       console.error(error);
-      // Fallback data
       const fallback = {
         boy: [
           { name: "浩然", pinyin: "Hào Rán", meaning: "Grand and righteous" },
@@ -73,15 +69,20 @@ export default function GeneratorPage() {
     }
   };
 
+  const genderOptions: { value: Gender; label: string; color?: string }[] = [
+    { value: "all", label: tCommon("gender.any") },
+    { value: "boy", label: tCommon("gender.boy"), color: "boy" },
+    { value: "girl", label: tCommon("gender.girl"), color: "girl" },
+  ];
+
   return (
     <div className="flex flex-col">
       {/* Hero */}
       <section className="bg-gradient-to-b from-primary/10 to-background py-16">
         <div className="mx-auto max-w-4xl px-4 text-center">
-          <h1 className="text-4xl font-bold">AI Name Generator</h1>
+          <h1 className="text-4xl font-bold">{t("hero.title")}</h1>
           <p className="mt-4 text-muted max-w-2xl mx-auto">
-            Generate unique Chinese baby names powered by AI. Choose your preferences
-            and let our AI create the perfect name for your baby.
+            {t("hero.description")}
           </p>
         </div>
       </section>
@@ -93,18 +94,14 @@ export default function GeneratorPage() {
             {/* Options */}
             <div className="lg:col-span-2">
               <div className="rounded-2xl border border-border bg-card p-8">
-                <h2 className="mb-6 text-xl font-semibold">Customize Your Search</h2>
+                <h2 className="mb-6 text-xl font-semibold">{t("form.title")}</h2>
 
                 <div className="space-y-8">
                   {/* Gender */}
                   <div>
-                    <label className="mb-3 block text-sm font-medium">Baby Gender</label>
+                    <label className="mb-3 block text-sm font-medium">{t("form.genderLabel")}</label>
                     <div className="flex gap-3">
-                      {[
-                        { value: "all" as Gender, label: "Any" },
-                        { value: "boy" as Gender, label: "Boy", color: "boy" },
-                        { value: "girl" as Gender, label: "Girl", color: "girl" },
-                      ].map((option) => (
+                      {genderOptions.map((option) => (
                         <button
                           key={option.value}
                           onClick={() => setGender(option.value)}
@@ -122,42 +119,42 @@ export default function GeneratorPage() {
 
                   {/* Style */}
                   <div>
-                    <label className="mb-3 block text-sm font-medium">Name Style</label>
+                    <label className="mb-3 block text-sm font-medium">{t("form.styleLabel")}</label>
                     <div className="space-y-2">
-                      {(["classic", "modern", "nature", "scholarly", "elegant"] as Style[]).map(
-                        (s) => (
-                          <button
-                            key={s}
-                            onClick={() => setStyle(s)}
-                            className={`w-full rounded-lg border px-4 py-3 text-left transition-all ${
-                              style === s
-                                ? "border-primary bg-primary/5 text-primary"
-                                : "border-border hover:border-muted"
-                            }`}
-                          >
-                            <span className="font-medium capitalize">{s.replace("-", " ")}</span>
-                            <p className="mt-1 text-xs text-muted">{styleDescriptions[s]}</p>
-                          </button>
-                        )
-                      )}
+                      {STYLES.map((s) => (
+                        <button
+                          key={s}
+                          onClick={() => setStyle(s)}
+                          className={`w-full rounded-lg border px-4 py-3 text-left transition-all ${
+                            style === s
+                              ? "border-primary bg-primary/5 text-primary"
+                              : "border-border hover:border-muted"
+                          }`}
+                        >
+                          <span className="font-medium">{tCommon(`style.${s}`)}</span>
+                          <p className="mt-1 text-xs text-muted">
+                            {t(`form.styleDescriptions.${s}`)}
+                          </p>
+                        </button>
+                      ))}
                     </div>
                   </div>
 
                   {/* Starting Letter */}
                   <div>
                     <label className="mb-3 block text-sm font-medium">
-                      Starting Letter (Optional)
+                      {t("form.startingLetterLabel")}
                     </label>
                     <input
                       type="text"
                       maxLength={1}
                       value={startingLetter}
                       onChange={(e) => setStartingLetter(e.target.value.toUpperCase())}
-                      placeholder="e.g., A, B, C..."
+                      placeholder={t("form.startingLetterPlaceholder")}
                       className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
                     />
                     <p className="mt-2 text-xs text-muted">
-                      Filter names by their Pinyin starting letter
+                      {t("form.startingLetterHint")}
                     </p>
                   </div>
 
@@ -173,10 +170,10 @@ export default function GeneratorPage() {
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                         </svg>
-                        Generating...
+                        {t("form.generating")}
                       </span>
                     ) : (
-                      "Generate Names with AI"
+                      t("form.generateButton")
                     )}
                   </button>
                 </div>
@@ -187,7 +184,7 @@ export default function GeneratorPage() {
             <div>
               <div className="sticky top-8">
                 <div className="rounded-2xl border border-border bg-card p-6">
-                  <h3 className="mb-4 font-semibold">Generated Names</h3>
+                  <h3 className="mb-4 font-semibold">{t("results.title")}</h3>
 
                   {results.length > 0 ? (
                     <div className="space-y-4">
@@ -211,14 +208,14 @@ export default function GeneratorPage() {
                           disabled={generating}
                           className="w-full rounded-lg border border-border py-2 text-sm font-medium hover:bg-muted-bg disabled:opacity-50"
                         >
-                          Generate More
+                          {t("results.generateMore")}
                         </button>
                       </div>
                     </div>
                   ) : (
                     <div className="py-8 text-center">
                       <p className="text-sm text-muted">
-                        Configure options and click generate to create unique names
+                        {t("results.empty")}
                       </p>
                     </div>
                   )}
@@ -227,7 +224,7 @@ export default function GeneratorPage() {
                 {/* Stats */}
                 <div className="mt-6 rounded-xl bg-muted-bg p-4">
                   <p className="text-sm text-muted">
-                    <span className="font-medium text-foreground">{generationCount}</span> generations this session
+                    {t("results.stats", { count: generationCount })}
                   </p>
                 </div>
               </div>

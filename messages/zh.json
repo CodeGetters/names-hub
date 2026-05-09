@@ -1,0 +1,162 @@
+{
+  "Layout": {
+    "siteName": "Names Hub",
+    "nav": {
+      "boyNames": "男宝名字",
+      "girlNames": "女宝名字",
+      "generator": "AI 生成器",
+      "about": "关于"
+    },
+    "footer": {
+      "copyright": "© 2026 Names Hub. 保留所有权利。"
+    },
+    "metadata": {
+      "title": "Names Hub - AI 婴儿取名 | 中英双语姓名",
+      "description": "AI 智能婴儿取名工具。为您的宝宝生成富有文化内涵的中英双语姓名,免费、即时、个性化。",
+      "ogTitle": "Names Hub - AI 婴儿取名生成器",
+      "ogDescription": "用 AI 生成精美的中英双语婴儿姓名"
+    }
+  },
+  "LocaleSwitcher": {
+    "label": "语言",
+    "en": "English",
+    "zh": "中文"
+  },
+  "Common": {
+    "gender": {
+      "any": "不限",
+      "boy": "男孩",
+      "girl": "女孩"
+    },
+    "style": {
+      "classic": "经典",
+      "modern": "现代",
+      "nature": "自然",
+      "scholarly": "文雅",
+      "elegant": "优雅"
+    }
+  },
+  "HomePage": {
+    "hero": {
+      "titleBefore": "为宝宝寻找完美的",
+      "titleHighlight": "名字",
+      "description": "AI 驱动的中英双语婴儿取名工具,为您的宝贝生成富有文化内涵、寓意美好的姓名。"
+    },
+    "form": {
+      "genderLabel": "宝宝性别",
+      "styleLabel": "姓名风格",
+      "styleOptions": {
+        "classic": "经典传统",
+        "modern": "现代流行",
+        "nature": "自然灵感",
+        "scholarly": "文雅书香",
+        "elegant": "优雅大方"
+      },
+      "startingLetterLabel": "起始字母(可选)",
+      "startingLetterPlaceholder": "如:A、B、C...",
+      "generateButton": "AI 生成姓名",
+      "generating": "生成中..."
+    },
+    "results": {
+      "title": "生成结果",
+      "generateMore": "再来一组",
+      "clear": "清空"
+    },
+    "features": {
+      "title": "为什么选择 Names Hub?",
+      "aiPowered": {
+        "title": "AI 智能生成",
+        "description": "采用先进 AI 技术,根据您的偏好和文化传承生成贴心姓名建议。"
+      },
+      "bilingual": {
+        "title": "中英双语",
+        "description": "跨越文化的双语姓名,附带拼音注音和寓意解释。"
+      },
+      "free": {
+        "title": "免费即时",
+        "description": "无需注册,即刻生成无限的姓名建议。"
+      }
+    },
+    "popular": {
+      "title": "热门姓名",
+      "subtitle": "浏览当下流行的婴儿姓名精选",
+      "boy": "男宝名字",
+      "girl": "女宝名字",
+      "viewAllBoy": "查看全部男宝名字",
+      "viewAllGirl": "查看全部女宝名字"
+    },
+    "cta": {
+      "title": "准备好为宝宝起个好名字了吗?",
+      "description": "今天就开始为宝贝生成精美的双语姓名。",
+      "button": "免费开始"
+    }
+  },
+  "GeneratorPage": {
+    "hero": {
+      "title": "AI 姓名生成器",
+      "description": "AI 驱动生成独特的中文婴儿姓名。选择您的偏好,让 AI 为您的宝贝量身打造完美姓名。"
+    },
+    "form": {
+      "title": "自定义条件",
+      "genderLabel": "宝宝性别",
+      "styleLabel": "姓名风格",
+      "styleDescriptions": {
+        "classic": "传统典雅、文化底蕴深厚的姓名",
+        "modern": "近年流行的现代风格姓名",
+        "nature": "灵感源自自然元素的姓名",
+        "scholarly": "富有文学和书卷气息的姓名",
+        "elegant": "优雅大方的姓名"
+      },
+      "startingLetterLabel": "起始字母(可选)",
+      "startingLetterPlaceholder": "如:A、B、C...",
+      "startingLetterHint": "按拼音首字母筛选姓名",
+      "generateButton": "AI 生成姓名",
+      "generating": "生成中..."
+    },
+    "results": {
+      "title": "生成结果",
+      "empty": "设置选项后点击生成,即可获得独特的姓名建议",
+      "generateMore": "再来一组",
+      "stats": "本次会话已生成 {count} 次"
+    }
+  },
+  "BoyPage": {
+    "title": "中文男宝名字",
+    "description": "为您的男宝宝挑选寓意美好的中文姓名,附带拼音和释义。",
+    "jumpTo": "跳转到:",
+    "ctaTitle": "生成更多姓名",
+    "ctaDescription": "使用我们的 AI 生成器,根据您的偏好定制独特姓名。",
+    "ctaButton": "试用 AI 生成器"
+  },
+  "GirlPage": {
+    "title": "中文女宝名字",
+    "description": "为您的女宝宝挑选优美的中文姓名,附带拼音和释义。",
+    "jumpTo": "跳转到:",
+    "ctaTitle": "生成更多姓名",
+    "ctaDescription": "使用我们的 AI 生成器,根据您的偏好定制独特姓名。",
+    "ctaButton": "试用 AI 生成器"
+  },
+  "NamePage": {
+    "notFound": {
+      "title": "未找到该姓名",
+      "description": "姓名 \"{slug}\" 暂未收录。",
+      "backHome": "返回首页"
+    },
+    "backToBoy": "← 返回男宝名字",
+    "backToGirl": "← 返回女宝名字",
+    "meaning": "寓意",
+    "story": "姓名故事",
+    "similar": "相似姓名",
+    "quickFacts": {
+      "title": "速览信息",
+      "characters": "字数",
+      "strokes": "总笔画",
+      "gender": "性别",
+      "origin": "来源"
+    },
+    "ctaTitle": "喜欢这个名字?",
+    "ctaDescriptionBoy": "生成更多类似 {name} 的男宝名字",
+    "ctaDescriptionGirl": "生成更多类似 {name} 的女宝名字",
+    "ctaButton": "试用 AI 生成器"
+  }
+}
