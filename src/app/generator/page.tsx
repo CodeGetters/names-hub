@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 type Gender = "all" | "boy" | "girl";
 type Style = "classic" | "modern" | "nature" | "scholarly" | "elegant";
