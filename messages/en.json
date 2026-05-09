@@ -117,7 +117,8 @@
       "title": "Generated Names",
       "empty": "Configure options and click generate to create unique names",
       "generateMore": "Generate More",
-      "stats": "{count, plural, one {# generation} other {# generations}} this session"
+      "stats": "{count, plural, one {# generation} other {# generations}} this session",
+      "error": "Generation failed. Please try again."
     }
   },
   "BoyPage": {
@@ -140,6 +141,7 @@
     "notFound": {
       "title": "Name Not Found",
       "description": "The name \"{slug}\" is not in our database yet.",
+      "genericDescription": "This name is not in our database yet.",
       "backHome": "Back to Home"
     },
     "backToBoy": "← Back to Boy Names",
@@ -158,5 +160,46 @@
     "ctaDescriptionBoy": "Generate more boy names like {name}",
     "ctaDescriptionGirl": "Generate more girl names like {name}",
     "ctaButton": "Try AI Generator"
+  },
+  "AboutPage": {
+    "metadata": {
+      "title": "About | Names Hub",
+      "description": "Learn about Names Hub — an AI-powered bilingual baby name generator built for cross-cultural families."
+    },
+    "hero": {
+      "title": "About Names Hub",
+      "tagline": "An AI-powered bilingual baby name generator built for cross-cultural families."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "body": "We believe naming a child is one of the most meaningful decisions a family makes. Names Hub helps cross-cultural families find names that bridge Chinese and English heritage — names with depth, meaning, and beauty in both languages."
+    },
+    "tech": {
+      "title": "Built With",
+      "items": {
+        "framework": "Next.js 16 with the App Router and React Server Components",
+        "i18n": "next-intl for first-class English / Chinese routing and SEO",
+        "deployment": "Cloudflare Pages via the OpenNext adapter for low-latency global delivery",
+        "ai": "Generative AI for personalized, meaningful name suggestions"
+      }
+    },
+    "privacy": {
+      "title": "Privacy",
+      "body": "Names Hub requires no account and stores no personal data. Your generations stay local to your browser session."
+    },
+    "contact": {
+      "title": "Contact & Source",
+      "body": "Names Hub is open source. Issues and contributions are welcome on GitHub.",
+      "linkLabel": "View on GitHub"
+    }
+  },
+  "Errors": {
+    "title": "Something went wrong",
+    "description": "An unexpected error occurred. Please try again.",
+    "retry": "Try again",
+    "backHome": "Back to home"
+  },
+  "Loading": {
+    "label": "Loading..."
   }
 }

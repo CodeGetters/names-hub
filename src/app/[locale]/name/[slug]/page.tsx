@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 
@@ -84,15 +85,7 @@ export default async function NameDetailPage({ params }: PageProps) {
   const nameData = namesData[slug];
 
   if (!nameData) {
-    return (
-      <div className="flex flex-col items-center justify-center py-20">
-        <h1 className="text-2xl font-bold">{t("notFound.title")}</h1>
-        <p className="mt-2 text-muted">{t("notFound.description", { slug })}</p>
-        <Link href="/" className="mt-4 text-primary hover:underline">
-          {t("notFound.backHome")}
-        </Link>
-      </div>
-    );
+    notFound();
   }
 
   const genderColor = nameData.gender === "boy" ? "boy" : "girl";

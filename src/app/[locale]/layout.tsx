@@ -77,6 +77,9 @@ export default async function LocaleLayout({
                   <Link href="/generator" className="hover:text-primary">
                     {t("nav.generator")}
                   </Link>
+                  <Link href="/about" className="hover:text-primary">
+                    {t("nav.about")}
+                  </Link>
                   <LocaleSwitcher />
                 </nav>
               </div>

@@ -117,7 +117,8 @@
       "title": "生成结果",
       "empty": "设置选项后点击生成,即可获得独特的姓名建议",
       "generateMore": "再来一组",
-      "stats": "本次会话已生成 {count} 次"
+      "stats": "本次会话已生成 {count} 次",
+      "error": "生成失败,请稍后重试。"
     }
   },
   "BoyPage": {
@@ -140,6 +141,7 @@
     "notFound": {
       "title": "未找到该姓名",
       "description": "姓名 \"{slug}\" 暂未收录。",
+      "genericDescription": "该姓名暂未收录。",
       "backHome": "返回首页"
     },
     "backToBoy": "← 返回男宝名字",
@@ -158,5 +160,46 @@
     "ctaDescriptionBoy": "生成更多类似 {name} 的男宝名字",
     "ctaDescriptionGirl": "生成更多类似 {name} 的女宝名字",
     "ctaButton": "试用 AI 生成器"
+  },
+  "AboutPage": {
+    "metadata": {
+      "title": "关于 | Names Hub",
+      "description": "了解 Names Hub — 一款面向跨文化家庭的 AI 双语婴儿取名工具。"
+    },
+    "hero": {
+      "title": "关于 Names Hub",
+      "tagline": "一款面向跨文化家庭的 AI 双语婴儿取名工具。"
+    },
+    "mission": {
+      "title": "我们的使命",
+      "body": "为孩子取名是家庭最重要的决定之一。Names Hub 帮助跨文化家庭找到既贴合中文文化底蕴、又便于英文环境使用的姓名 —— 让名字在两种语言中都有深度、寓意和美感。"
+    },
+    "tech": {
+      "title": "技术栈",
+      "items": {
+        "framework": "Next.js 16 + App Router + React Server Components",
+        "i18n": "next-intl 提供原生中英路由与 SEO 支持",
+        "deployment": "Cloudflare Pages + OpenNext 适配器,实现全球低延迟分发",
+        "ai": "生成式 AI 提供个性化、有寓意的姓名建议"
+      }
+    },
+    "privacy": {
+      "title": "隐私",
+      "body": "Names Hub 无需注册,不收集任何个人信息。您的生成记录仅保留在浏览器会话中。"
+    },
+    "contact": {
+      "title": "联系与源码",
+      "body": "Names Hub 是开源项目,欢迎在 GitHub 上提交 Issue 或贡献代码。",
+      "linkLabel": "前往 GitHub"
+    }
+  },
+  "Errors": {
+    "title": "出错了",
+    "description": "发生了意料之外的错误,请稍后重试。",
+    "retry": "重试",
+    "backHome": "返回首页"
+  },
+  "Loading": {
+    "label": "加载中..."
   }
 }
